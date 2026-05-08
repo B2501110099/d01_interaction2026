@@ -14,103 +14,93 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { 
-            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
-          },
-          colors: {
-            accent: '#002244',
-          }
+          fontFamily: { sans: ['Inter', 'Noto Sans KR', 'sans-serif'] },
+          colors: { accent: '#002244' }
         }
       }
     }
   </script>
 
   <style>
-    body { overflow-x: hidden; background-color: #fff; }
+    body { overflow-x: hidden; background-color: #fff; color: #111; }
     
+    /* 반응형 타이틀: 모바일에서도 가독성 확보 */
     .hero-title { 
-      font-size: clamp(5rem, 12vw, 12rem); 
-      line-height: 0.95; 
+      font-size: clamp(3.5rem, 10vw, 10rem); 
+      line-height: 0.92; 
       letter-spacing: -0.04em; 
       font-weight: 800;
     }
 
     .reveal { 
       opacity: 0; 
-      transform: translateY(60px) scale(0.98); 
-      transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); 
+      transform: translateY(30px); 
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); 
     }
     .reveal.active { 
       opacity: 1; 
-      transform: translateY(0) scale(1); 
+      transform: translateY(0); 
     }
 
     .bg-soft { background-color: #f8f9fa; }
-    .word-fade { transition: opacity 0.6s ease, transform 0.8s ease; }
-    .philosophy-text { word-break: keep-all; line-height: 2.2; }
-    
+    .philosophy-text { word-break: keep-all; line-height: 1.7; }
+
+    /* 이미지 카드: 모바일에서는 1:1에 가깝게 조정 */
     .image-card {
       width: 100%;
-      aspect-ratio: 4 / 5;
-      background-color: #f0f0f0;
+      aspect-ratio: 1 / 1.1;
+      background-color: #eee;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    .image-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(0,34,68,0.1);
-    }
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   </style>
 </head>
 
 <body class="font-sans antialiased text-black">
 
-  <section id="hero" class="relative min-h-screen flex items-end px-12 pb-24 pt-32 reveal">
-    <div class="absolute top-12 right-12 flex gap-10 text-3xl uppercase tracking-tighter font-bold text-accent">
+  <section id="hero" class="relative min-h-screen flex items-end px-[7vw] pb-[10vh] pt-32 reveal">
+    <div class="absolute top-8 right-8 md:top-12 md:right-12 flex gap-6 md:gap-10 text-[clamp(1rem,2.5vw,2rem)] uppercase tracking-tighter font-bold text-accent">
       <span>2026</span>
-      <span class="opacity-100 ">portfolio</span>
+      <span class="opacity-20">portfolio</span>
     </div>
-    <div class="max-w-screen-2xl w-full">
-      <h1 class="hero-title text-black">
+    <div class="max-w-screen-xl w-full">
+      <h1 class="hero-title">
         The<br><span class="text-accent">Silent</span><br>Professional
       </h1>
     </div>
   </section>
 
-  <section id="concept-bold" class="min-h-screen flex items-center justify-center bg-accent reveal">
-    <img src="images/CONCEPT.png" alt="CONCEPT" class="w-[85vw] h-auto object-contain filter invert brightness-[2]">
+  <section id="concept-bold" class="min-h-[60vh] md:min-h-screen flex items-center justify-center bg-accent reveal">
+    <img src="images/CONCEPT.png" alt="CONCEPT" class="w-[85vw] md:w-[75vw] h-auto object-contain filter invert brightness-[2]">
   </section>
 
-  <section id="methodology" class="min-h-screen flex flex-col bg-soft reveal px-12 py-40">
-    <div class="mb-20">
-      <h2 class="text-[140px] font-extrabold tracking-[-0.08em] leading-none text-accent/85">CONCEPT.</h2>
+  <section id="methodology" class="min-h-screen flex flex-col bg-soft reveal px-[7vw] py-[10vh] justify-center">
+    <div class="mb-[4vh]">
+      <h2 class="text-[clamp(3rem,8vw,7rem)] font-extrabold tracking-[-0.08em] leading-none text-accent/80 uppercase">
+        CONCEPT.
+      </h2>
     </div>
 
-    <div class="flex items-center justify-center py-32 ">
-      <span class="text-[280px] font-thin leading-none opacity-30">(</span>
-      <div class="relative flex justify-center items-center min-w-[800px] mx-24">
-        <h3 id="target-word" class="text-[180px] italic font-bold tracking-[-0.05em] leading-none word-fade text-accent">
+    <div class="flex items-center justify-center py-[6vh] w-full">
+      <span class="text-[clamp(5rem,15vw,15rem)] font-thin leading-none opacity-20 text-black">(</span>
+      <div class="relative flex justify-center items-center w-full max-w-[700px] mx-[2vw]">
+        <h3 id="target-word" class="text-[clamp(2.2rem,9vw,8rem)] italic font-bold tracking-[-0.05em] leading-none text-accent transition-all duration-700">
           Calculated
         </h3>
       </div>
-      <span class="text-[280px] font-thin leading-none opacity-30">)</span>
+      <span class="text-[clamp(5rem,15vw,15rem)] font-thin leading-none opacity-20 text-black">)</span>
     </div>
 
-    <div class="flex justify-end w-full mt-48">
-      <div class="text-right max-w-[900px]">
-        <h4 class="text-[54px] font-bold tracking-tighter mb-12 text-accent">정제된 디자인</h4>
-        <div class="philosophy-text text-[20px] font-medium text-gray-800 space-y-3">
+    <div class="flex justify-end w-full mt-[6vh]">
+      <div class="text-right w-full md:max-w-[750px]">
+        <h4 class="text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-tighter mb-[3vh] text-accent">
+          정제된 디자인
+        </h4>
+        <div class="philosophy-text text-[clamp(0.95rem,1.3vw,1.2rem)] font-medium text-gray-700 space-y-[1.2vh]">
           <p>디자인은 단순한 감각이 아니라, <span class="text-accent font-bold">선택과 판단의 결과</span>라고 생각합니다.</p>
-          <p>저는 트렌드를 그대로 따르기보다, 시장과 사용자에 대한 이해를 바탕으로 <P>가장 적절한 방향을 분석하고 설계합니다.</p>
+          <p>저는 트렌드를 그대로 따르기보다, 시장과 사용자에 대한 이해를 바탕으로 가장 적절한 방향을 분석하고 설계합니다.</p>
           <p>우연이 아닌 <span class="border-b border-black">의도된 결과</span>이며, 모든 요소에는 명확한 이유와 목적이 담겨 있습니다.</p>
           <p>감각이라는 추상적 토대 위에 논리라는 구체적 골조를 세워,<br>설득력 있는 디자인을 만들어가는 디자이너입니다.</p>
         </div>
@@ -118,61 +108,42 @@
     </div>
   </section>
 
-  <section id="analysis" class="min-h-screen bg-white pt-32 overflow-hidden reveal">
-    <div class="flex justify-between items-center px-12 mb-24">
-      <div class="flex items-center gap-12 font-bold text-xl text-accent">
-        <span class="opacity-100 uppercase font-medium">Calculated Result</span>
+  <section id="analysis" class="min-h-screen bg-white pt-24 pb-32 reveal">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center px-[7vw] mb-16 md:mb-32 gap-4">
+      <span class="text-sm md:text-base uppercase font-extrabold tracking-[0.2em] text-accent">Visual Analysis</span>
+      <div class="flex items-center gap-6 md:gap-12 font-bold text-base md:text-lg text-accent">
+        <span class="opacity-20 uppercase">Calculated Result</span>
         <span>2026</span>
       </div>
     </div>
     
-    <div class="px-12 mb-40">
-      <div class="flex gap-12 items-start">
-        
-        <div class="flex-1">
-          <div class="image-card mb-8">
-            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">01</span>
-          </div>
-          <div class="pl-2">
-            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Precision</p>
-            <p class="text-xs opacity-80 uppercase tracking-tighter">Detailed Analytical Structure</p>
-          </div>
+    <div class="px-[7vw]">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 items-start">
+        <div class="flex flex-col">
+          <div class="image-card mb-6"><span class="text-accent opacity-10 font-black text-xl italic">01</span></div>
+          <p class="text-base font-bold uppercase tracking-widest text-accent mb-1">Precision</p>
+          <p class="text-[10px] opacity-40 uppercase tracking-tight">Analytical Structure</p>
         </div>
 
-        <div class="flex-1 mt-24">
-          <div class="image-card mb-8">
-            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">02</span>
-          </div>
-          <div class="pl-2">
-            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Clarity</p>
-            <p class="text-xs opacity-50 uppercase tracking-tighter">Refined Visual Solution</p>
-          </div>
+        <div class="flex flex-col md:mt-16">
+          <div class="image-card mb-6"><span class="text-accent opacity-10 font-black text-xl italic">02</span></div>
+          <p class="text-base font-bold uppercase tracking-widest text-accent mb-1">Clarity</p>
+          <p class="text-[10px] opacity-40 uppercase tracking-tight">Refined Visual</p>
         </div>
 
-        <div class="flex-1">
-          <div class="image-card mb-8">
-            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">03</span>
-          </div>
-          <div class="pl-2">
-            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Method</p>
-            <p class="text-xs opacity-50 uppercase tracking-tighter">User-Centric Logic</p>
-          </div>
+        <div class="flex flex-col">
+          <div class="image-card mb-6"><span class="text-accent opacity-10 font-black text-xl italic">03</span></div>
+          <p class="text-base font-bold uppercase tracking-widest text-accent mb-1">Method</p>
+          <p class="text-[10px] opacity-40 uppercase tracking-tight">Systematic Logic</p>
         </div>
 
-        <div class="flex-1 mt-24">
-          <div class="image-card mb-8">
-            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">04</span>
-          </div>
-          <div class="pl-2">
-            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Intent</p>
-            <p class="text-xs opacity-50 uppercase tracking-tighter">Strategic Purposeful Design</p>
-          </div>
+        <div class="flex flex-col md:mt-16">
+          <div class="image-card mb-6"><span class="text-accent opacity-10 font-black text-xl italic">04</span></div>
+          <p class="text-base font-bold uppercase tracking-widest text-accent mb-1">Intent</p>
+          <p class="text-[10px] opacity-40 uppercase tracking-tight">Purposeful Design</p>
         </div>
-
       </div>
     </div>
-    
-    <h2 class="analytical-title px-12 pb-10 opacity-[0.03] select-none uppercase font-black">Analytical</h2>
   </section>
 
   <script>
@@ -181,23 +152,23 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('active');
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.05 });
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
       const words = ["Calculated", "Methodical", "Objective"];
       let currentIndex = 0;
       const target = document.getElementById('target-word');
-      function updateWord() {
+
+      setInterval(() => {
         target.style.opacity = '0';
-        target.style.transform = 'translateY(15px) scale(0.95)';
+        target.style.transform = 'translateY(10px)';
         setTimeout(() => {
           currentIndex = (currentIndex + 1) % words.length;
           target.textContent = words[currentIndex];
           target.style.opacity = '1';
-          target.style.transform = 'translateY(0) scale(1)';
-        }, 800);
-      }
-      setInterval(updateWord, 5000);
+          target.style.transform = 'translateY(0)';
+        }, 600);
+      }, 5000);
     });
   </script>
 </body>
