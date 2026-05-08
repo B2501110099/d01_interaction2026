@@ -1,195 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_upward" />
-    <style>
-        body {
-            margin: 0;
-            height: 2000px;
-        }
-        section {
-            width: 100%;
-            height: 100vh;
-            text-align: center;
-        }
-        section:nth-child(odd) {
-            background-color: rgb(233, 249, 255);
-        }
-        .wrapper {
-            padding-top: 88px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        h1 {
-            color: skyblue;
-            font-size: 48px;
-        }
-        h2 {
-            font-size: 32px;
-        }
-        h3 {
-            font-size: 24px;
-            font-weight: 300;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Silent Professional | 2026 Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
 
-        .btns {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 10;
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { 
+            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+          },
+          colors: {
+            accent: '#002244',
+          }
         }
-        .btns .container {
-            position: relative;
-            max-width: 5000px;
-            padding: 20px;
-            background-color: #333;
-            margin: auto;
-        }
-        .btns__menu {
-            display: flex;
-            justify-content: center;
-        }
+      }
+    }
+  </script>
 
-        .btns__menu .btn {
-            font-size: 16px;
-            font-weight: 600;
-            color: #193a40;
-            width: 150px;
-            height: 40px;
-            border-radius: 6px;
-            margin: 4px;
-            cursor: pointer;
-            background-color: #9ad2d9;
-        }
+  <style>
+    body { overflow-x: hidden; background-color: #fff; }
+    
+    .hero-title { 
+      font-size: clamp(5rem, 12vw, 12rem); 
+      line-height: 0.95; 
+      letter-spacing: -0.04em; 
+      font-weight: 800;
+    }
 
-        .btns__menu .btn:hover {
-            background-color: white;
-            /* border: 1px solid white; */
-        }
-        button {
-            border: none;
-            outline: none;
-        }
-        .arrow-up {
-            position: fixed;
-            bottom: 60px;
-            right: 50px;
-            width: 70px;
-            height: 70px;
-            color: white;
-            background-color: skyblue;
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity .3s;
-            cursor: pointer;
-        }
-        .arrow-up span {
-            font-size: 50px;
-        }
-        .arrow-up.show {
-            opacity: 1;
-        }
-    </style>
+    .reveal { 
+      opacity: 0; 
+      transform: translateY(60px) scale(0.98); 
+      transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); 
+    }
+    .reveal.active { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+
+    .bg-soft { background-color: #f8f9fa; }
+    .word-fade { transition: opacity 0.6s ease, transform 0.8s ease; }
+    .philosophy-text { word-break: keep-all; line-height: 2.2; }
+    
+    /* 이미지 카드 스타일: 충분한 크기 확보 */
+    .image-card {
+      width: 100%;
+      aspect-ratio: 4 / 5; /* 살짝 더 큼직한 세로 비율 */
+      background-color: #f0f0f0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .image-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,34,68,0.1);
+    }
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
-<body>
-    <button class="arrow-up">
-        <span class="material-symbols-outlined">
-arrow_upward
-</span>
-    </button>
-    <div class="btns">
-        <div class="container">
-            <div class="btns__menu">
-                <button class="btn home">Home</button>
-                <button class="btn about">about</button>
-                <button class="btn skills">skills</button>
-                <button class="btn works">works</button>
-                <button class="btn contact">contact</button>
-            </div>
-        </div>
+
+<body class="font-sans antialiased text-black">
+
+  <section id="hero" class="relative min-h-screen flex items-end px-12 pb-24 pt-32 reveal">
+    <div class="absolute top-12 right-12 flex gap-10 text-3xl uppercase tracking-tighter font-bold text-accent">
+      <span>2026</span>
+      <span class="opacity-100 ">portfolio</span>
+    </div>
+    <div class="max-w-screen-2xl w-full">
+      <h1 class="hero-title text-black">
+        The<br><span class="text-accent">Silent</span><br>Professional
+      </h1>
+    </div>
+  </section>
+
+  <section id="concept-bold" class="min-h-screen flex items-center justify-center bg-accent reveal">
+    <img src="images/CONCEPT.png" alt="CONCEPT" class="w-[85vw] h-auto object-contain filter invert brightness-[2]">
+  </section>
+
+  <section id="methodology" class="min-h-screen flex flex-col bg-soft reveal px-12 py-40">
+    <div class="mb-20">
+      <h2 class="text-[140px] font-extrabold tracking-[-0.08em] leading-none text-accent/85">CONCEPT.</h2>
     </div>
 
-    <section id="home">
-        <div class="wrapper">
-            <h1>Home</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, voluptatum necessitatibus. Facilis libero rem debitis ab beatae possimus esse eius, perspiciatis perferendis modi sapiente fuga nobis vitae, laudantium illo fugit?</h3>
-        </div>
-    </section>
-    <section id="about">
-        <div class="wrapper">
-            <h1>About</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, voluptatum necessitatibus. Facilis libero rem debitis ab beatae possimus esse eius, perspiciatis perferendis modi sapiente fuga nobis vitae, laudantium illo fugit?</h3>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="wrapper">
-            <h1>skills</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, voluptatum necessitatibus. Facilis libero rem debitis ab beatae possimus esse eius, perspiciatis perferendis modi sapiente fuga nobis vitae, laudantium illo fugit?</h3>
-        </div>
-    </section>
-    <section id="works">
-        <div class="wrapper">
-            <h1>works</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, voluptatum necessitatibus. Facilis libero rem debitis ab beatae possimus esse eius, perspiciatis perferendis modi sapiente fuga nobis vitae, laudantium illo fugit?</h3>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="wrapper">
-            <h1>contact</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, voluptatum necessitatibus. Facilis libero rem debitis ab beatae possimus esse eius, perspiciatis perferendis modi sapiente fuga nobis vitae, laudantium illo fugit?</h3>
-        </div>
-    </section>
+    <div class="flex items-center justify-center py-32 ">
+      <span class="text-[280px] font-thin leading-none opacity-30">(</span>
+      <div class="relative flex justify-center items-center min-w-[800px] mx-24">
+        <h3 id="target-word" class="text-[180px] italic font-bold tracking-[-0.05em] leading-none word-fade text-accent">
+          Calculated
+        </h3>
+      </div>
+      <span class="text-[280px] font-thin leading-none opacity-30">)</span>
+    </div>
 
-    <script>
-        const arrowUp = document.querySelector('.arrow-up');
-        document.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                arrowUp.classList.add('show');
-            } else {
-                arrowUp.classList.remove('show');
-            }
-            console.log(window.scrollY)
-        })
-        arrowUp.addEventListener('click', function() {
-            sectionHome.scrollIntoView({behavior:"smooth", block:"center"});
-        })
+    <div class="flex justify-end w-full mt-48">
+      <div class="text-right max-w-[900px]">
+        <h4 class="text-[54px] font-bold tracking-tighter mb-12 text-accent">정제된 디자인</h4>
+        <div class="philosophy-text text-[20px] font-medium text-gray-800 space-y-3">
+          <p>디자인은 단순한 감각이 아니라, <span class="text-accent font-bold">선택과 판단의 결과</span>라고 생각합니다.</p>
+          <p>저는 트렌드를 그대로 따르기보다, 시장과 사용자에 대한 이해를 바탕으로 <P>가장 적절한 방향을 분석하고 설계합니다.</p>
+          <p>우연이 아닌 <span class="border-b border-black">의도된 결과</span>이며, 모든 요소에는 명확한 이유와 목적이 담겨 있습니다.</p>
+          <p>감각이라는 추상적 토대 위에 논리라는 구체적 골조를 세워,<br>설득력 있는 디자인을 만들어가는 디자이너입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const btnHome = document.querySelector('.home');
-        const sectionHome = document.querySelector('#home');
-        btnHome.addEventListener('click', function() {
-            sectionHome.scrollIntoView({behavior:"smooth", block: "center"});
-        })
+  <section id="analysis" class="min-h-screen bg-white pt-32 overflow-hidden reveal">
+    <div class="flex justify-between items-center px-12 mb-24">
+      <div class="flex items-center gap-12 font-bold text-xl text-accent">
+        <span class="opacity-100 uppercase font-medium">Calculated Result</span>
+        <span>2026</span>
+      </div>
+    </div>
+    
+    <div class="px-12 mb-40">
+      <div class="flex gap-12 items-start">
+        
+        <div class="flex-1">
+          <div class="image-card mb-8">
+            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">01</span>
+          </div>
+          <div class="pl-2">
+            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Precision</p>
+            <p class="text-xs opacity-80 uppercase tracking-tighter">Detailed Analytical Structure</p>
+          </div>
+        </div>
 
+        <div class="flex-1 mt-24">
+          <div class="image-card mb-8">
+            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">02</span>
+          </div>
+          <div class="pl-2">
+            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Clarity</p>
+            <p class="text-xs opacity-50 uppercase tracking-tighter">Refined Visual Solution</p>
+          </div>
+        </div>
 
-        const btnAbout = document.querySelector('.about');
-        const sectionAbout = document.querySelector('#about');
-        btnAbout.addEventListener('click', function() {
-            sectionAbout.scrollIntoView({behavior:"smooth", block:"center"});
-        })
-        const btnSkills = document.querySelector('.skills');
-        const sectionSkills = document.querySelector('#skills');
-        btnSkills.addEventListener('click', function() {
-            sectionSkills.scrollIntoView({behavior:"smooth", block:"center"});
-        })
-        const btnWorks = document.querySelector('.works');
-        const sectionWorks = document.querySelector('#works');
-        btnWorks.addEventListener('click', function() {
-            sectionWorks.scrollIntoView({behavior:"smooth", block:"center"});
-        })
-        const btnContact = document.querySelector('.contact');
-        const sectionContact = document.querySelector('#contact');
-        btnContact.addEventListener('click', function() {
-            sectionContact.scrollIntoView({behavior:"smooth", block:"center"});
-        })
-    </script>
+        <div class="flex-1">
+          <div class="image-card mb-8">
+            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">03</span>
+          </div>
+          <div class="pl-2">
+            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Method</p>
+            <p class="text-xs opacity-50 uppercase tracking-tighter">User-Centric Logic</p>
+          </div>
+        </div>
 
+        <div class="flex-1 mt-24">
+          <div class="image-card mb-8">
+            <span class="text-accent opacity-20 font-black text-2xl uppercase italic">04</span>
+          </div>
+          <div class="pl-2">
+            <p class="text-lg font-bold uppercase tracking-widest text-accent mb-2">Intent</p>
+            <p class="text-xs opacity-50 uppercase tracking-tighter">Strategic Purposeful Design</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <h2 class="analytical-title px-12 pb-10 opacity-[0.03] select-none uppercase font-black">Analytical</h2>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      const words = ["Calculated", "Methodical", "Objective"];
+      let currentIndex = 0;
+      const target = document.getElementById('target-word');
+      function updateWord() {
+        target.style.opacity = '0';
+        target.style.transform = 'translateY(15px) scale(0.95)';
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+          target.textContent = words[currentIndex];
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0) scale(1)';
+        }, 800);
+      }
+      setInterval(updateWord, 5000);
+    });
+  </script>
 </body>
 </html>
